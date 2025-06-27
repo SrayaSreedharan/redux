@@ -23,6 +23,7 @@ Instead of passing data through props (which gets messy as your app grows), Redu
           npm install redux react-redux
           
 ✅ 2. Create Actions:
+
         // actions/counterActions.js
         export const increment = () => ({ type: 'INCREMENT' });
         export const decrement = () => ({ type: 'DECREMENT' });
