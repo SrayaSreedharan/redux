@@ -3,6 +3,7 @@ Redux is a state management library for JavaScript apps, commonly used with Reac
 
 🔄 What Redux Does:
 Instead of passing data through props (which gets messy as your app grows), Redux allows any component to access the state it needs — from one global store.
+
 1:Store – The central place where the entire state of your app lives.
 
 2:Action – A plain JS object that describes what happened (e.g., { type: 'INCREMENT' }).
