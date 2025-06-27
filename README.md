@@ -18,80 +18,69 @@ Instead of passing data through props (which gets messy as your app grows), Redu
 
 🧱 Redux Setup Steps in React:
 ✅ 1. Install Redux and React-Redux:
-bash
-Copy
-Edit
-npm install redux react-redux
+          npm install redux react-redux
+          
 ✅ 2. Create Actions:
-js
-Copy
-Edit
-// actions/counterActions.js
-export const increment = () => ({ type: 'INCREMENT' });
-export const decrement = () => ({ type: 'DECREMENT' });
+        // actions/counterActions.js
+        export const increment = () => ({ type: 'INCREMENT' });
+        export const decrement = () => ({ type: 'DECREMENT' });
+        
 ✅ 3. Create Reducer:
-js
-Copy
-Edit
-// reducers/counterReducer.js
-const initialState = { count: 0 };
+      // reducers/counterReducer.js
+      const initialState = { count: 0 };
 
-export const counterReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return { count: state.count + 1 };
-    case 'DECREMENT':
-      return { count: state.count - 1 };
-    default:
-      return state;
-  }
-};
+    export const counterReducer = (state = initialState, action) => {
+      switch (action.type) {
+        case 'INCREMENT':
+          return { count: state.count + 1 };
+        case 'DECREMENT':
+          return { count: state.count - 1 };
+        default:
+          return state;
+      }
+    };
 ✅ 4. Create Store:
-js
-Copy
-Edit
-// store.js
-import { createStore } from 'redux';
-import { counterReducer } from './reducers/counterReducer';
 
-export const store = createStore(counterReducer);
+      // store.js
+      import { createStore } from 'redux';
+      import { counterReducer } from './reducers/counterReducer';
+
+      export const store = createStore(counterReducer);
+      
 ✅ 5. Wrap App with Provider:
-js
-Copy
-Edit
-// index.js or App.js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { store } from './store';
-import App from './App';
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-);
+      // index.js or App.js
+      import React from 'react';
+      import ReactDOM from 'react-dom';
+      import { Provider } from 'react-redux';
+      import { store } from './store';
+      import App from './App';
+      
+      ReactDOM.render(
+        <Provider store={store}>
+          <App />
+        </Provider>,
+        document.getElementById('root')
+      );
+      
 ✅ 6. Use Redux in Components:
-js
-Copy
-Edit
-// CounterComponent.js
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { increment, decrement } from './actions/counterActions';
 
-const CounterComponent = () => {
-  const count = useSelector(state => state.count);
-  const dispatch = useDispatch();
-
-  return (
-    <div>
-      <h2>Count: {count}</h2>
-      <button onClick={() => dispatch(increment())}>+</button>
-      <button onClick={() => dispatch(decrement())}>-</button>
-    </div>
-  );
-};
-
-export default CounterComponent;
+      // CounterComponent.js
+      import React from 'react';
+      import { useDispatch, useSelector } from 'react-redux';
+      import { increment, decrement } from './actions/counterActions';
+      
+      const CounterComponent = () => {
+        const count = useSelector(state => state.count);
+        const dispatch = useDispatch();
+      
+        return (
+          <div>
+            <h2>Count: {count}</h2>
+            <button onClick={() => dispatch(increment())}>+</button>
+            <button onClick={() => dispatch(decrement())}>-</button>
+          </div>
+        );
+      };
+      
+      export default CounterComponent;
