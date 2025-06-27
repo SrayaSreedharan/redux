@@ -18,6 +18,7 @@ Instead of passing data through props (which gets messy as your app grows), Redu
 
 
 🧱 Redux Setup Steps in React:
+
 ✅ 1. Install Redux and React-Redux:
           npm install redux react-redux
           
